@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+"# HERE Mobile SDK 4.x" 
+"# HERE_mSDK_4.x" 
+<html>
 
-You can use the [editor on GitHub](https://github.com/speedfankimo/Map_JS_3.1_Leftlet_3/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <title>HERE & Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <style>
+    body,
+    html {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+    </style>
+</head>
 
-### Markdown
+<body>
+    <div id="map"></div>
+    <script>
+    const here = {
+        apiKey: 'WrZ-xEhamFv0aNNN-ovG4rSXkVeo5RvmMthl-Qul0oc'
+    }
+    const style = 'normal.day';
+    const pview = 'VNM'
+    const lg  = 'VIE'
+    const lg2 = 'ENG'
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    const hereTileUrl = `https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/${style}/{z}/{x}/{y}/512/png8?apiKey=${here.apiKey}&ppi=320&lg=${lg2}`;
 
-```markdown
-Syntax highlighted code block
+    const map = L.map('map', {
+        center: [7.88852, 110.40774],
+        zoom: 8,
+        layers: [L.tileLayer(hereTileUrl)]
+    });
+    map.attributionControl.addAttribution('&copy; HERE 2019');
+    </script>
+</body>
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/speedfankimo/Map_JS_3.1_Leftlet_3/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</html>
