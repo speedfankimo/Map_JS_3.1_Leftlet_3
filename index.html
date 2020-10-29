@@ -1,0 +1,46 @@
+"# HERE Mobile SDK 4.x" 
+"# HERE_mSDK_4.x" 
+<html>
+
+<head>
+    <title>HERE & Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <style>
+    body,
+    html {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+    const here = {
+        apiKey: 'WrZ-xEhamFv0aNNN-ovG4rSXkVeo5RvmMthl-Qul0oc'
+    }
+    const style = 'normal.day';
+    const pview = 'VNM'
+    const lg  = 'VIE'
+    const lg2 = 'ENG'
+
+    const hereTileUrl = `https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/${style}/{z}/{x}/{y}/512/png8?apiKey=${here.apiKey}&ppi=320&lg=${lg2}`;
+
+    const map = L.map('map', {
+        center: [7.88852, 110.40774],
+        zoom: 8,
+        layers: [L.tileLayer(hereTileUrl)]
+    });
+    map.attributionControl.addAttribution('&copy; HERE 2019');
+    </script>
+</body>
+
+</html>
